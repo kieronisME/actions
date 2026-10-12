@@ -27,7 +27,7 @@ if (!usingS3) {
 app.get("/api/notes", async (req, res) => {
   // A note stores the name of its file, not a link to it, because an S3 link
   // expires. So the link is worked out fresh every time the notes are sent.
-  const withUrl = await Promise.all(
+  const withUrls = await Promise.all(
     notes.map(async (note) => {
       if (!note.attachment) return note;
 
